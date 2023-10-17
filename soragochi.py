@@ -15,8 +15,7 @@ def root():
 
 @app.route("/status")
 def status():
-    return sora_hunger, sora_mood, sora_tiredness
-
+    return [sora_hunger, sora_tiredness, sora_mood]
 
 app.url_for('static', filename='index.html')
 
@@ -35,6 +34,7 @@ def tiredness(sora_tiredness):
         sora_tiredness = 0
 
 
+
 def hunger(sora_hunger):
     while sora_hunger < 10:
         sora_hunger += 1
@@ -47,3 +47,4 @@ if __name__ == "__main__":
     p1.start()
     p2 = Process(target=hunger)
     p2.start()
+
