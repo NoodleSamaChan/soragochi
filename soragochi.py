@@ -2,11 +2,21 @@ from flask import Flask
 from multiprocessing import Process
 from apscheduler.schedulers.background import BackgroundScheduler
 import time
+import pickle
 
 sora_hunger = 0
 sora_tiredness = 0
 sora_mood = 'Normal'
 app = Flask(__name__)
+
+try:
+    with open('save_file.pickle', 'rb') as savings:
+        save_file = pickle.load(savings)
+        sora_hunger = save_file[0]
+        sora_tiredness = save_file[1]
+        sora_mood = save_file[2]
+except:
+    print('Starting form fresh file')
 
 app.config['SERVER_NAME'] = '127.0.0.1:5000'
 
@@ -55,6 +65,10 @@ def tick():
 
 
     print(sora_hunger, sora_mood, sora_tiredness)
+
+    save = open('save_file.pickle', 'wb')
+    pickle.dump(status(), save)
+    save.close()
 
 scheduler = BackgroundScheduler()
 job = scheduler.add_job(tick, 'interval', seconds=3)
