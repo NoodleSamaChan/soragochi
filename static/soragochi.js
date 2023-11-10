@@ -1,7 +1,9 @@
-//let soraNormal = ./static/sora_sprite_basic.png;
-//let soraDead = ./static/soraDead.png;
-//let soraBack = ./static/soraBack.png;
-//let SoraSideLeft = ;
+let soraSprite = document.getElementById('sora_image');
+
+let soraNormal = './static/sora_sprite_basic.png';
+let soraDead = './static/sora_dead.png';
+let soraBack = './static/sora_back.png';
+let SoraTired = './static/sora_tired.png';
 //let SoraSideRight = ;
 //let SoraHungry = ;
 
@@ -12,6 +14,14 @@ setInterval(async () => {
   });
   status_update = await response.json()
   console.log(status_update)
+
+  if (status_update[2] === 'Normal'){
+    soraSprite.src = soraNormal;
+  } else if (status_update[2] === 'Tired'){
+    soraSprite.src = SoraTired;
+  } else {
+    soraSprite.src = soraDead;
+  }
 }, 1000);
 
 let feeding = document.getElementById('feeding_button')
