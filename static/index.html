@@ -4,12 +4,17 @@
 
       <title>Document</title>
       <script src="./static/soragochi.js" defer></script> 
+      <link rel="stylesheet" href="./static/style.css">
     </head>
   <body>
 
     <h1>Soragochi</h1>
-    <img id="sora_image" src='./static/sora_sprite_basic.png' height="150vp"/>
-    <button id="feeding_button">Feed me</button>
-    <button id="sleeping_button">Let me rest</button>
+    <p>Click on your keyboard to make Sora jump</p>
+    <img id= 'sora_image' src='./static/sora_sprite_basic.png' height="150vp"/>
+    <div id= 'floor'></div>
   </body>
+  <footer>
+    <button id= 'feeding_button' class="floated">Feed me</button>
+    <button id= 'sleeping_button' class="floated">Let me rest</button>
+  </footer>
 </html>

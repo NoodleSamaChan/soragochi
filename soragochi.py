@@ -33,13 +33,13 @@ def status():
 
 app.url_for('static', filename='index.html')
 
-@app.route("/feed")
+@app.route("/feed", methods=['PUT'])
 def feed():
     global sora_hunger
     sora_hunger = 0
     return [sora_hunger]
 
-@app.route("/sleep")
+@app.route("/sleep", methods=['PUT'])
 def sleep():
     global sora_tiredness
     sora_tiredness = 0
