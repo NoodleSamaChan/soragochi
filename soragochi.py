@@ -4,6 +4,13 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import time
 import pickle
 
+#class Sora:
+#    def __init__(self):
+#        self.hunger = 0
+#        self.tiredness = 0
+#        self.mood = 'Normal'
+
+#sora = Sora()
 sora_hunger = 0
 sora_tiredness = 0
 sora_mood = 'Normal'
